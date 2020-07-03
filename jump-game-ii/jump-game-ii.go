@@ -28,10 +28,10 @@ func jump(nums []int) int {
 		for j := 1; j <= nums[i] && j+i < l; j++ {
 			if dp[j+i] == 0 {
 				dp[j+i] = dp[i]+1
-			} else {
-				dp[j+i] = min(dp[i+j], dp[i]+1)
 			}
-
+			//else {
+			//	dp[j+i] = min(dp[i+j], dp[i]+1)
+			//}
 		}
 	}
 

@@ -6,6 +6,10 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+/*
+	形成中序遍历的数据，中序数据必须节点从小到大排列
+ */
+
 func isValidBST(root *TreeNode) bool {
 	s := []int{}
 

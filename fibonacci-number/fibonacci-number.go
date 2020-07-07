@@ -37,6 +37,10 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.
 */
 
 func fib(N int) int {
+	if N == 0 {
+		return 0
+	}
+
 	dp := make([]int, N+1)
 
 	dp[0] = 0

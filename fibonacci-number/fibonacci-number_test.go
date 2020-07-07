@@ -14,6 +14,9 @@ type TestCase struct {
 func TestBackPack(t *testing.T) {
 	aTestCase := []TestCase{
 		{
+			0, 0,
+		},
+		{
 			2, 1,
 		},
 		{

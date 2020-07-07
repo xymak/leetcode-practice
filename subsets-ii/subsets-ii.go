@@ -1,21 +1,21 @@
-package subsets
+package subsets_rii
+
+import "sort"
 
 /*
-给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
+给定一个可能包含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
 
 说明：解集不能包含重复的子集。
 
 示例:
 
-输入: nums = [1,2,3]
+输入: [1,2,2]
 输出:
 [
-  [3],
-  [1],
   [2],
-  [1,2,3],
-  [1,3],
-  [2,3],
+  [1],
+  [1,2,2],
+  [2,2],
   [1,2],
   []
 ]
@@ -25,6 +25,8 @@ package subsets
 func subsetsWithDup(nums []int) [][]int {
 	var r [][]int
 	var c []int
+
+	sort.Ints(nums)
 
 	backtrack(nums, 0, c, &r)
 	return r
@@ -36,14 +38,11 @@ func backtrack(nums []int, f int, c []int, r *[][]int) {
 	*r = append(*r, c)
 
 	for i:=f;i<len(nums);i++ {
-		//fmt.Println(c, nums[i])
 		if i != f && nums[i] == nums[i-1] {
 			continue
 		}
 		c = append(c, nums[i])
-		newC := make([]int, len(c))
-		copy(newC, c)
-		backtrack(nums, i+1, newC, r)
+		backtrack(nums, i+1, c, r)
 
 		c = c[:len(c)-1]
 	}

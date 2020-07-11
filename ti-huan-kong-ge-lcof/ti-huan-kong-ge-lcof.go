@@ -1,5 +1,7 @@
 package ti_huan_kong_ge_lcof
 
+import "bytes"
+
 func replaceSpace(s string) string {
 	r := []byte("%20")
 	buf := bytes.NewBufferString("")
